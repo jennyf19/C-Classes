@@ -13,16 +13,23 @@ namespace Classes
         //add two private fields, called x and y of type int
         private int x, y;
 
-        //default constructor
+        //private static field called objectCount of type int
+        private static int objectCount = 0;
+
+        //add public static mehtod to Point class called ObjectCount that returns an int but does not take parameters
+        public static int ObjectCount() => objectCount;
+
         public Point()
-        {
-            Console.WriteLine("Default constructor called");
-        }
-        public Point(int x, int y)
         {
             this.x = -1;
             this.y = -1;
-            Console.WriteLine($"x:{x}, y:{y}");
+            objectCount++;
+        }
+        public Point(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+            objectCount++;
         }
 
         //public instance method..accepts a sign Point argument called other and returns a double
